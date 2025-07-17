@@ -3,7 +3,7 @@ import React from 'react'
 
 const MainCard = () => {
   return (
-    <div className='flex py-40 mt-20 bg-[#09090b] px-2 justify-center items-center'>
+    <div className='flex py-40 mt-16 bg-gray-900 px-2 justify-center items-center'>
         <div className='flex justify-center items-center flex-col gap-5'>
              <div className="logo text-center text-4xl md:text-6xl font-bold text-orange-600 tracking-wide drop-shadow-sm">
                   PizzaHub
