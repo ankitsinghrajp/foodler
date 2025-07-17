@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Teekha Paneer",
+    "ingredients": ["Paneer", "Onion", "Green Chilli", "Black Olive"],
+    "personal": 170.00,
+    "medium": 250.00
+  },
+  {
+    "name": "Tandoori Paneer",
+    "ingredients": ["Paneer", "Onion", "Capsicum", "Tomato"],
+    "personal": 170.00,
+    "medium": 250.00
+  },
+  {
+    "name": "Makhani Paneer",
+    "ingredients": ["Paneer", "Mix Veg", "Makhni Sauce"],
+    "personal": 170.00,
+    "medium": 250.00
+  },
+  {
+    "name": "Tangy Paneer",
+    "ingredients": ["Red Paprika", "Paneer", "Jalapino", "Black Olive"],
+    "personal": 170.00,
+    "medium": 250.00
+  }
+]

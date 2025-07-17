@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Veggie Lover",
+    "ingredients": ["Onion", "Tomato", "Capsicum", "Mushroom", "Corn"],
+    "personal": 150.00,
+    "medium": 210.00
+  },
+  {
+    "name": "Spicy Veg",
+    "ingredients": ["Mushroom", "Black Olive", "Green Chilli"],
+    "personal": 150.00,
+    "medium": 210.00
+  },
+  {
+    "name": "Veggie Wonder",
+    "ingredients": ["Onion", "Tomato", "Corn", "Mushroom"],
+    "personal": 150.00,
+    "medium": 210.00
+  }
+]

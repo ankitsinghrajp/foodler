@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Margherita",
+    "ingredients": ["Cheese", "Tomato"],
+    "personal": 120.00,
+    "medium": 170.00
+  },
+  {
+    "name": "Mightty Veg",
+    "ingredients": ["Onion", "Capsicum"],
+    "personal": 120.00,
+    "medium": 170.00
+  },
+  {
+    "name": "Mightty Crunch",
+    "ingredients": ["Onion", "Capsicum", "Tomato"],
+    "personal": 120.00,
+    "medium": 170.00
+  },
+  {
+    "name": "Mix Masti",
+    "ingredients": ["Onion", "Tomato", "Corn"],
+    "personal": 120.00,
+    "medium": 170.00
+  }
+]

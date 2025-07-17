@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Mexican Twist",
+    "ingredients": ["Onion", "Corn", "Black Olive", "Green Chilli", "Jalapino", "Paneer"],
+    "personal": 200.00,
+    "medium": 300.00
+  },
+  {
+    "name": "Veggie Supreme",
+    "ingredients": ["Corn", "Capsicum", "Black Olive", "Mushroom", "Tomato"],
+    "personal": 200.00,
+    "medium": 300.00
+  },
+  {
+    "name": "Italian Fiesta",
+    "ingredients": ["Jalapino", "Capsicum", "Paneer", "Red Paprika", "Baby Corn"],
+    "personal": 200.00,
+    "medium": 300.00
+  }
+]
