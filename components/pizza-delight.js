@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -18,21 +17,22 @@ import { Badge } from "./ui/badge";
 import { ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import pizzaDelightjson from "../data/pizzaDelight.json";
+import { toast } from "sonner";
 
 const PizzaDelight = () => {
   const [cartState, setCartState] = useState(
-    pizzaDelightjson.map(pizza => ({
+    pizzaDelightjson.map((pizza) => ({
       name: pizza.name,
       selectedSize: "Personal",
       quantity: 1,
-      unitPrice: pizza.personal
+      unitPrice: pizza.personal,
     }))
   );
 
   const user = {
     name: "John Doe",
     email: "johndoe@example.com",
-    location: "Indore"
+    location: "Indore",
   };
 
   const updateSize = (index, size, price) => {
@@ -69,11 +69,14 @@ const PizzaDelight = () => {
       userLocation: user.location,
     };
 
+    // Save to localStorage
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     existingCart.push(cartItem);
     localStorage.setItem("cart", JSON.stringify(existingCart));
+    // Dispatch update event for real-time header refresh
+    window.dispatchEvent(new Event("cartUpdated"));
 
-    console.log("🛒 Added to Cart:", cartItem);
+    toast.success("The item successfully added to cart");
   };
 
   return (
@@ -101,16 +104,14 @@ const PizzaDelight = () => {
                     <CardTitle className="text-2xl font-bold mb-2">
                       {pizza.name}
                     </CardTitle>
-                    <CardDescription>
-                      <Badge
-                        variant="outline"
-                        className="bg-blue-500 text-white text-sm"
-                      >
-                        Pizza Delight
-                      </Badge>
-                    </CardDescription>
+                    <Badge
+                      variant="outline"
+                      className="bg-blue-500 text-white text-sm mb-2"
+                    >
+                      Pizza Delight
+                    </Badge>
                     <div className="flex flex-wrap gap-2 mt-2">
-                      {pizza.ingredients?.map(i => (
+                      {pizza.ingredients?.map((i) => (
                         <p
                           className="text-sm font-medium text-muted-foreground"
                           key={i}
@@ -138,7 +139,7 @@ const PizzaDelight = () => {
                         Size
                       </h2>
                       <DropdownMenu>
-                        <DropdownMenuTrigger className="border-2 rounded-md cursor-pointer flex items-center mt-2 justify-between px-4 w-full py-2 gap-2 border-gray-400">
+                        <DropdownMenuTrigger className="border-2 rounded-md flex items-center justify-between px-4 py-2 w-full mt-2 cursor-pointer gap-2 border-gray-400">
                           {state.selectedSize} <ChevronDown />
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="bg-gray-950">
@@ -154,16 +155,16 @@ const PizzaDelight = () => {
 
                     <div className="flex justify-between px-2 mt-2">
                       <h2>Quantity</h2>
-                      <div className="flex gap-4 items-center justify-center">
+                      <div className="flex items-center justify-center gap-4">
                         <span
-                          className="text-xl select-none hover:text-2xl cursor-pointer"
+                          className="text-xl cursor-pointer select-none hover:text-2xl"
                           onClick={() => updateQuantity(index, -1)}
                         >
                           –
                         </span>
                         <span className="text-2xl select-none">{state.quantity}</span>
                         <span
-                          className="text-xl select-none hover:text-2xl cursor-pointer"
+                          className="text-xl cursor-pointer select-none hover:text-2xl"
                           onClick={() => updateQuantity(index, 1)}
                         >
                           +
@@ -174,7 +175,7 @@ const PizzaDelight = () => {
 
                   <CardFooter>
                     <Button
-                      className="bg-green-600 w-full cursor-pointer hover:bg-green-700 text-white font-semibold"
+                      className="bg-green-600 w-full hover:bg-green-700 cursor-pointer text-white font-semibold"
                       onClick={() => handleAddToCart(index)}
                     >
                       Add to Cart — ₹ {total}
@@ -191,3 +192,4 @@ const PizzaDelight = () => {
 };
 
 export default PizzaDelight;
+

@@ -18,6 +18,7 @@ import { Badge } from "./ui/badge";
 import { ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import pizzaClassicJson from "../data/pizzaClassic.json";
+import { toast } from "sonner";
 
 const PizzaClassic = () => {
   const [cartState, setCartState] = useState(
@@ -29,7 +30,6 @@ const PizzaClassic = () => {
     }))
   );
 
-  // Mock user info (replace with real user data)
   const user = {
     name: "John Doe",
     email: "johndoe@example.com",
@@ -70,12 +70,13 @@ const PizzaClassic = () => {
       userLocation: user.location,
     };
 
-    // Save to localStorage
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     existingCart.push(cartItem);
     localStorage.setItem("cart", JSON.stringify(existingCart));
+    // dispatch update so header reloads
+    window.dispatchEvent(new Event("cartUpdated"));
 
-    console.log("🛒 Added to Cart:", cartItem);
+    toast.success("The item successfully added to cart");
   };
 
   return (
@@ -90,6 +91,7 @@ const PizzaClassic = () => {
           </h4>
         </div>
       </div>
+
       <div className="border-b-2 border-dotted">
         <div className="container mx-auto">
           <div className="grid gap-5 my-20 px-4 grid-cols-1 md:grid-cols-3">
@@ -149,16 +151,12 @@ const PizzaClassic = () => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="bg-gray-950">
                           <DropdownMenuItem
-                            onClick={() =>
-                              updateSize(index, "Personal", pizza.personal)
-                            }
+                            onClick={() => updateSize(index, "Personal", pizza.personal)}
                           >
                             Personal - ₹ {pizza.personal}
                           </DropdownMenuItem>
                           <DropdownMenuItem
-                            onClick={() =>
-                              updateSize(index, "Medium", pizza.medium)
-                            }
+                            onClick={() => updateSize(index, "Medium", pizza.medium)}
                           >
                             Medium - ₹ {pizza.medium}
                           </DropdownMenuItem>
@@ -207,5 +205,6 @@ const PizzaClassic = () => {
 };
 
 export default PizzaClassic;
+
 
 

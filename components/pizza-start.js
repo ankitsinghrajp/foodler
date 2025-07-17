@@ -18,6 +18,7 @@ import { Badge } from "./ui/badge";
 import { ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import pizzaStart from "../data/pizzaStart.json";
+import { toast } from "sonner";
 
 const PizzaStart = () => {
   const [cartState, setCartState] = useState(
@@ -72,8 +73,9 @@ const PizzaStart = () => {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     existingCart.push(cartItem);
     localStorage.setItem("cart", JSON.stringify(existingCart));
-
-    console.log("🛒 Added to Cart:", cartItem);
+    // 🔔 dispatch update event so Header reloads immediately
+    window.dispatchEvent(new Event("cartUpdated"));
+    toast.success("The item successfully added to cart!");
   };
 
   return (
@@ -206,5 +208,6 @@ const PizzaStart = () => {
 };
 
 export default PizzaStart;
+
 
 
