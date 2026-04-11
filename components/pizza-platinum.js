@@ -65,7 +65,7 @@ const PizzaPlatinum = () => {
       totalPrice: total,
       ingredients: original.ingredients || [],
       time: new Date().toLocaleString(),
-      userEmail: user.email,
+      // userEmail: user.email, // Avoid storing sensitive data
       userName: user.name,
       userLocation: user.location,
     };
