@@ -72,7 +72,7 @@ const PizzaPlatinum = () => {
 
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     existingCart.push(cartItem);
-    localStorage.setItem("cart", JSON.stringify(existingCart));
+    localStorage.setItem("cart", JSON.stringify(validateCartItems(existingCart)));
     // 🔔 notify header (and any other listener) that the cart changed
     window.dispatchEvent(new Event("cartUpdated"));
 
