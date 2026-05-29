@@ -42,7 +42,7 @@ function Button({
   asChild = false,
   ...props
 }) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot : "button"; if (asChild && !isValidSlotProps(props)) throw new Error('Invalid props for Slot');
 
   return (
     (<Comp
