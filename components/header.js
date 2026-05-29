@@ -166,7 +166,7 @@ export default function Header() {
               <Button variant="outline" onClick={() => setCheckoutOpen(false)}>
                 Cancel
               </Button>
-              <Button onClick={()=>handleOrderSubmit} type="submit" className="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white">
+              <Button onClick={handleOrderSubmit} type="submit" className="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white">
                 Place Order
               </Button>
             </div>

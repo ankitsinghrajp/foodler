@@ -70,7 +70,7 @@ const PizzaDiamond = () => {
       userLocation: user.location,
     };
 
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingCart = JSON.parse(localStorage.getItem("cart") || '[]') || [];
     existingCart.push(cartItem);
     localStorage.setItem("cart", JSON.stringify(existingCart));
     // 🔔 dispatch update event so Header reloads immediately
