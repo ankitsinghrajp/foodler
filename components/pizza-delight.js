@@ -64,7 +64,7 @@ const PizzaDelight = () => {
       totalPrice: total,
       ingredients: original.ingredients || [],
       time: new Date().toLocaleString(),
-      userEmail: user.email,
+      userEmail: '', // Avoid storing sensitive information
       userName: user.name,
       userLocation: user.location,
     };
